@@ -1,0 +1,23 @@
+[project]
+name = "bias-engine-mcp"
+version = "0.1.0"
+description = "Modular cognitive bias system for AI agents - MCP server"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp>=1.0.0",
+    "pydantic>=2.0.0",
+]
+
+[project.scripts]
+bias-engine-server = "bias_mcp.server:run_server"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["core", "bias_mcp", "integrations"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
